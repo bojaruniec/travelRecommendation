@@ -11,9 +11,6 @@
   <li><a href="./travel_recommendation.html" id="home">Home </a></li>
   <li><a href="./travel_about.html" id="home">About us </a></li>
   <li><a href="./travel_contact.html" id="contact">Contact Us </a></li>
-  <li><input type="text" id="conditionInput" placeholder="Enter a search condition">  </li>
-  <li><button id='btnSearch'>Search</button></li>
-  <li><button id='btnReset'>Reset</button></li>
 </ul>
 </nav>
 
@@ -27,23 +24,28 @@
     </ul>  
     </div>
   <div class="main">
-    <div class="description">
-    <h1>Explore Dream Destination</h1>
-  <p>This is a brief website description with general information and some 
-    advertising slogans. People usually do not read this part so it is rather
-    not as important as other parts
- </p>
+    <div class="contact_us">
+    <div class="contact_us_left">
+    <h1>Contact Us</h1>
+    <p>Get in touch
+    </p>
     </div>
+    <div class="contact_us_right">
+        <form id="contact_us_form">
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        <label for="mail">E-mail:</label>
+        <input type="text" id="mail">
+        <label for="message">Message:</label>
+        <textarea id="message">
+        </textarea>
+        <button id='btnSearch'>Submit</button>
+        </form>
 
-    <div class="searchCondition">
-      <div id="result"></div>
+    </div>
+    </div>
   </div>
-  
-  </div>
-  
 </div>
-
-
 
 
 <script src="./travel_recommendation.js"></script>

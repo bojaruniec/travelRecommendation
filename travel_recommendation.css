@@ -6,45 +6,119 @@
     box-sizing: border-box;
 }
 
-
 .container {
-    margin: 10vh 5%;
-    width: 30%; /* Adjust as needed */
-}
-.container h1 {
-    font-size: 72px;
+  display: flex;
 }
 
-.description p {
-    font-size: 36px;
-    color: ivory;
+.side {
+  margin-top: 100px;
+  display: block;
+  padding: 30px;
 }
 
+.side ul {
+  list-style-type: none;
+}
 
-nav {
-    background-color: #f0f0f0;
-    padding: 20px;
+.main {
+  display: block;
+  flex: 40%;
+  padding: 20px;
+}
+
+.description{
+  flex: 40%;
+  padding: 20px;
+  margin-top: 100px;
+  width: 75%;
+}
+
+.aboutus p {
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+#team {
+  margin-top: 100px;
+  margin-left: 50px;
+  display: flex;
+}
+
+#team div{
+  width: 20%;
+}
+
+.team_member {
+  margin-left: 20px;
+}
+
+#team .team_member h1 {
+  font-size: medium;
+  margin: 0;
+}
+
+#team .team_member h2 {
+  font-size: medium;
+  margin-top: 10px;
+  background-color: blue;
+  color:aliceblue;
+  text-align: center;
+  border-radius: 10px;
+
+}
+
+#team .team_member p{
+  margin: 0;
+}
+
+.contact_us {
+  margin-top: 100px;
+  display: inline-flex;
+}
+
+.contact_us_left{
+  margin-right: 10px;
+}
+
+.contact_us_right{
+  display: block;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#contact_us_form {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-  }
+    flex-direction: column;
+}
+
+#contact_us_form textarea {
+  width: 100%;
+  height: 200px;
+}
+
+.topnav a {
+  float: left;
+  display: flex;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
   
-  nav ul {
+.topnav ul {
     list-style-type: none;
     /* padding: 0; */
   }
   
-  nav ul li {
+.topnav  ul li {
     display: inline;
     margin-right: 10px;
   }
   
-  nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
   
   /* Basic CSS for the form elements */
   body {
@@ -110,15 +184,23 @@ nav {
   }
   
 .navbar_social {
-    overflow: hidden;
-    background-color: #333;
-}
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
 
 .navbar_social a {
     float: left;
-    display: block;
+    display: flex;
     color: #f2f2f2;
-    text-align: center;
+    text-align: flex;
     padding: 14px 16px;
     text-decoration: none;
 }

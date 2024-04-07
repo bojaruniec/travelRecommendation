@@ -6,6 +6,11 @@ function searchCondition() {
     fetch('travel_recommendation_api.json')
       .then(response => response.json())
       .then(data => {
+        console.log(data)
+        Object.keys(data).forEach((key) => {
+            if (key.toLowerCase().startsWith(input)) {
+              console.log(`Key "${key}" has value: ${data[key]}`);
+            }})
         const condition = data.find(item => item.toLowerCase() === input);
         console.log(condition)
 

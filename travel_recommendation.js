@@ -6,23 +6,23 @@ function searchCondition() {
     fetch('travel_recommendation_api.json')
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        let condition = ''
+        let condition_key = ''
         Object.keys(data).forEach((key) => {
             if (key.toLowerCase().startsWith(input)) {
-              console.log(`Key "${key}" has value: ${data[key]}`);
+                condition = data[key];
+                condition_key = key;
             }})
-        const condition = data.find(item => item.toLowerCase() === input);
-        console.log(condition)
 
-        if (country) {
-          const cities = country.cities.join(', ');
-          resultDiv.innerHTML += `<h2>${country.name}</h2>`;
-
-          for (const city of cities){
-            resultDiv.innerHTML += `<p><strong>City:</strong> ${city.name}</p>`;
-          }
+        if (condition) {
+          console.log(`Condition name: ${condition_key}`)
+        //   resultDiv.innerHTML += `<h2>${cond_names}</h2>`;
+          condition.forEach (item => {
+            console.log(`Condition item: ${item.name}`);
+          })
+         
         } else {
-          resultDiv.innerHTML = 'Country not found.';
+          resultDiv.innerHTML = 'Condition not found.';
         }
       })
       .catch(error => {

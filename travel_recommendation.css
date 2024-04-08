@@ -21,8 +21,8 @@
 }
 
 .main {
-  display: block;
-  flex: 40%;
+  display: flex;
+  flex: 80%;
   padding: 20px;
 }
 

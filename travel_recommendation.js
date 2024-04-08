@@ -1,9 +1,6 @@
 function searchCondition() {
     const input = document.getElementById('conditionInput').value.toLowerCase();
-    const resultDiv = document.getElementById('result');
     const resultReport = document.getElementById('report_result');
-
-    resultDiv.innerHTML = '';
 
     fetch('travel_recommendation_api.json')
       .then(response => response.json())
@@ -17,22 +14,42 @@ function searchCondition() {
             }})
 
         if (condition) {
-          console.log(`Condition name: ${condition_key}`)
+          resultReport.innerHTML = ''
+            console.log(`Condition name: ${condition_key}`)
         //   resultDiv.innerHTML += `<h2>${cond_names}</h2>`;
           condition.forEach (item => {
             console.log(`Condition item: ${item.name}`);
-            const reusltSubDiv = resultReport.createElement("div");
-            const resultSubDivTitle = reusltSubDiv.createElement("h1");
-            resultSubDivTitle.innerHTML = item.name;
+            const reusltSubDiv = document.createElement("div");
+            const resultSubDivTitle = document.createElement("h1");
+            const resultPicture = document.createElement("img")
+            const resultDescription = document.createElement("p")
+
+            resultPicture.src = item.imageUrl
+            resultDescription.innerText = item.description
+            resultSubDivTitle.innerText = item.name;
+            reusltSubDiv.appendChild(resultSubDivTitle);
+            reusltSubDiv.appendChild(resultDescription);
+            reusltSubDiv.appendChild(resultPicture)
+            resultReport.appendChild(reusltSubDiv);
+
           })
+
          
         } else {
-          resultDiv.innerHTML = 'Condition not found.';
+          resultReport.innerHTML = 'Condition not found.';
         }
       })
       .catch(error => {
         console.error('Error:', error);
-        resultDiv.innerHTML = 'An error occurred while fetching data.';
+        resultReport.innerHTML = 'An error occurred while fetching data.';
       });
   }
     btnSearch.addEventListener('click', searchCondition);
+
+function resetForm() {
+    const input = document.getElementById('conditionInput').value.toLowerCase();
+    const resultReport = document.getElementById('report_result');
+    input.value = ''
+    resultReport.innerHTML = ''
+    }
+btnReset.addEventListener('click', resetForm);

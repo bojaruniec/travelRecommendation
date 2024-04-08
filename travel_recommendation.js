@@ -1,6 +1,8 @@
 function searchCondition() {
     const input = document.getElementById('conditionInput').value.toLowerCase();
     const resultDiv = document.getElementById('result');
+    const resultReport = document.getElementById('report_result');
+
     resultDiv.innerHTML = '';
 
     fetch('travel_recommendation_api.json')
@@ -19,6 +21,9 @@ function searchCondition() {
         //   resultDiv.innerHTML += `<h2>${cond_names}</h2>`;
           condition.forEach (item => {
             console.log(`Condition item: ${item.name}`);
+            const reusltSubDiv = resultReport.createElement("div");
+            const resultSubDivTitle = reusltSubDiv.createElement("h1");
+            resultSubDivTitle.innerHTML = item.name;
           })
          
         } else {
